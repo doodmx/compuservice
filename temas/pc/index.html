@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es-mx">
+   <head>
+      <?php echo $meta_chartset;?>
+      <title><?php echo title();?></title>
+      <!-- for-mobile-apps -->
+      <?php echo $metas;?>
+      <META NAME="DESCRIPTION" CONTENT="<?php echo $description;?>">
+      <META NAME="KEYWORDS" CONTENT="<?php echo $keywords;?>">
+      <!-- LINK-ICON -->
+      <link rel="shortcut icon" type="image/x-icon" href="<?php echo $page_url;?>favicon.ico">
+      <link rel="icon" type="image/x-icon" href="<?php echo $page_url;?>favicon.ico">
+      <?php 
+         sql_opciones('api_icon',$valor);
+         if($valor==1){icon();}
+         ?>
+      <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+         function hideURLbar(){ window.scrollTo(0,1); } 
+      </script>
+      <!-- //for-mobile-apps -->
+      <link href="<?php echo $page_url.$path_tema;?>css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+      <link href="<?php echo $page_url.$path_tema;?>css/style.css" rel="stylesheet" type="text/css" media="all" />
+      <!-- gallery -->
+      <link href="<?php echo $page_url.$path_tema;?>css/lightGallery.css" rel="stylesheet" type="text/css" media="all" />
+      <!-- //gallery -->
+      <!-- font-awesome icons -->
+      <link href="<?php echo $page_url.$path_tema;?>css/font-awesome.css" rel="stylesheet">
+      <!-- //font-awesome icons -->
+      <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Jura:300,400,500,600" rel="stylesheet">
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+      <script src="<?php echo $page_url.$path_tema;?>js/jquery-2.2.3.min.js"></script>
+      <!--GOOGLE ANALITYCS-->
+      <?php 
+         sql_opciones('google_analytics',$valor);
+         if($valor==1){echo $google_analytics;}
+         ?>
+      <!--FIN GOOGLE ANALITYCS-->
+      <?php 
+         sql_opciones('api_social_chat',$valor);
+         if($valor==1){?>
+      <!-- WhatsHelp.io widget -->
+      <script type="text/javascript">
+         (function () {
+             var options = {
+                 <?php if($wapp!=''){echo 'whatsapp: "'.$wapp.'",';}?> 
+                 <?php if($contactMail!=''){echo 'email: "'.$contactMail.'",';}?>
+                 <?php if($phone!=''){echo 'call: "'.$phone.'",';}?>                 
+                 //*facebook: "273325302781021", // Facebook page ID
+                 call_to_action: "Chatea con nosotros", // Call to action
+                 button_color: "#129BF4", // Color of button
+                 position: "left", // Position may be 'right' or 'left'
+                 order: "whatsapp", // Order of buttons
+             };
+             var proto = document.location.protocol, host = "whatshelp.io", url = proto + "//static." + host;
+             var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+             s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+             var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+         })();
+      </script>
+      <!-- /WhatsHelp.io widget -->
+      <?php }?>
+      <?php 
+         login($login_se,$username,$ID_login);
+         ?>
+   </head>
+   <body>
+      <!-- header -->
+      <div class="header">
+         <div class="w3layouts_header_left">
+            <div class="top-nav-text">
+               <?php 
+                  if($tel1!=''){
+                  	echo '<p><i class="fa fa-phone"></i> <a class="call"><a href="tel:'.$tel1.'">'.$tel1.'</a></span></p>';
+                  }
+                  if($contactMail!=''){
+                  	echo '<p><i class="fa fa-envelope-o"></i> <span class="mail"><a href="mailto:'.$contactMail.'">'.$contactMail.'</a></span></p>';
+                  }
+                  ?>						
+            </div>
+         </div>
+         <div class="w3layouts_header_right">
+            <form action="#" method="post">
+               <input name="Search heare" type="search" placeholder="Search" required="">
+               <input type="submit" value="">
+            </form>
+         </div>
+         <div class="clearfix"> </div>
+      </div>
+      <div class="w3_navigation">
+         <div class="container">
+            <nav class="navbar navbar-default">
+               <div class="navbar-header navbar-left">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  </button>
+                  <div class="w3_navigation_pos">
+                     <h1><a href="<?php echo $page_url?>"><?php echo $page_name;?></a></h1>
+                  </div>
+               </div>
+               <!-- Collect the nav links, forms, and other content for toggling -->
+               <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                  <nav class="cl-effect-5" id="cl-effect-5">
+                     <ul class="nav navbar-nav">
+                        <?php menu_web();?>
+      
+                     </ul>
+                  </nav>
+               </div>
+            </nav>
+         </div>
+      </div>
+	  <!-- //header -->
+	  <?php bodymodulos();?>
+      <!-- //mail -->
+      <div class="map" id="local">
+         <div class="container">
+            <h3 class="w3l_head w3l_head1">Ubicaci&oacute;n</h3>
+            <p class="w3ls_head_para w3ls_head_para1">Encuentranos en</p>
+         </div>
+         <!--iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57537.641430789925!2d-74.03215321337959!3d40.719122105634035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sin!4v1456152197129" allowfullscreen=""></iframe-->
+      </div>
+      <!-- footer -->
+      <div class="w3l_footer">
+         <div class="container">
+            <div class="w3ls_footer_grids">
+               <div class="w3ls_footer_grid">
+                  <div class="col-md-4 w3ls_footer_grid_left">
+                     <div class="w3ls_footer_grid_leftl">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                     </div>
+                     <div class="w3ls_footer_grid_leftr">
+                        <h4>Direcci&oacute;n</h4>
+                        <?php
+                           if($direc!=''){
+                           	echo '<p>'.$direc.'</p>';
+                           }?>
+                     </div>
+                     <div class="clearfix"> </div>
+                  </div>
+                  <div class="col-md-4 w3ls_footer_grid_left">
+                     <div class="w3ls_footer_grid_leftl">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                     </div>
+                     <div class="w3ls_footer_grid_leftr">
+                        <h4>Email</h4>
+                        <?php
+                           if($contactMail!=''){
+                           	echo '<a href="mailto:'.$contactMail.'">'.$contactMail.'</a>';
+                           }?>
+                     </div>
+                     <div class="clearfix"> </div>
+                  </div>
+                  <div class="col-md-4 w3ls_footer_grid_left">
+                     <div class="w3ls_footer_grid_leftl">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                     </div>
+                     <div class="w3ls_footer_grid_leftr">
+                        <h4>Llamanos</h4>
+                        <?php
+                           if($tel1!=''){
+                           	echo '<p><a href="tel:'.$tel1.'">'.$tel1.'</a></p>';
+                           }?>
+                     </div>
+                     <div class="clearfix"> </div>
+                  </div>
+                  <div class="clearfix"> </div>
+               </div>
+            </div>
+         </div>
+         <div class="w3l_footer_pos">
+            <p>&copy; <?php echo $year;?>. Todos los derechos reservados.</p>
+         </div>
+      </div>
+      <!-- //footer -->
+      <!--banner Slider starts Here-->
+      <script src="<?php echo $page_url.$path_tema;?>js/responsiveslides.min.js"></script>
+      <script>
+         // You can also use "$(window).load(function() {"
+         $(function () {
+           // Slideshow 4
+           $("#slider3").responsiveSlides({
+         	auto: true,
+         	pager:false,
+         	nav:true,
+         	speed: 500,
+         	namespace: "callbacks",
+         	before: function () {
+         	  $('.events').append("<li>before event fired.</li>");
+         	},
+         	after: function () {
+         	  $('.events').append("<li>after event fired.</li>");
+         	}
+           });
+         
+         });
+      </script>
+      <!-- js -->
+      <!-- start-smoth-scrolling -->
+      <script src="<?php echo $page_url.$path_tema;?>js/lightGallery.js"></script>
+      <script>
+         $(document).ready(function() {
+         $("#lightGallery").lightGallery({
+         mode:"fade",
+         speed:800,
+         caption:true,
+         desc:true,
+         mobileSrc:true
+         });
+         });
+      </script>
+      <script src="<?php echo $page_url.$path_tema;?>js/owl.carousel.js"></script> 
+      <link href="<?php echo $page_url.$path_tema;?>css/owl.theme.css" rel="stylesheet">
+      <link rel="stylesheet" href="<?php echo $page_url.$path_tema;?>css/owl.carousel.css" type="text/css" media="all">
+      <script>
+         $(document).ready(function() { 
+         	$("#owl-demo").owlCarousel({
+          
+         		autoPlay: 3000, //Set AutoPlay to 3 seconds
+         		  autoPlay : true,
+         		   navigation :true,
+         
+         		items : 4,
+         		itemsDesktop : [640,5],
+         		itemsDesktopSmall : [414,4]
+          
+         	});
+         	
+         }); 
+      </script>
+      <!-- start-smoth-scrolling -->
+      <script type="text/javascript" src="<?php echo $page_url.$path_tema;?>js/move-top.js"></script>
+      <script type="text/javascript" src="<?php echo $page_url.$path_tema;?>js/easing.js"></script>
+      <script type="text/javascript">
+         jQuery(document).ready(function($) {
+         	$(".scroll").click(function(event){		
+         		event.preventDefault();
+         		$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+         	});
+         });
+      </script>
+      <!-- start-smoth-scrolling -->
+      <!-- //js -->
+      <script src="<?php echo $page_url.$path_tema;?>js/bootstrap.js"></script>
+      <!-- //for bootstrap working -->
+      <!-- here stars scrolling icon -->
+      <script type="text/javascript">
+         $(document).ready(function() {
+         	/*
+         		var defaults = {
+         		containerID: 'toTop', // fading element id
+         		containerHoverID: 'toTopHover', // fading element hover id
+         		scrollSpeed: 1200,
+         		easingType: 'linear' 
+         		};
+         	*/
+         						
+         	$().UItoTop({ easingType: 'easeOutQuart' });
+         						
+         	});
+      </script>
+      <!-- //here ends scrolling icon -->
+      <?php API_WPA();?>
+   </body>
+</html>

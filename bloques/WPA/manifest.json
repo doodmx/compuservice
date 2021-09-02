@@ -1,0 +1,23 @@
+{
+	"name": "Compu-services",
+	"short_name": "Compu-services",
+	"description": "Venta y Reparaci&oacute;n de computadoras, celulares y drones",
+	"scope": ".",
+	"start_url": "http://compuservices.mx/",
+	"display": "standalone",
+	"orientation": "portrait",
+	"theme_color": "#000",
+	"background_color": "#fff",
+	"icons": [
+	  {
+		"src": "icon/apple-icon-180x180.png",
+		"sizes": "180x180",
+		"type": "image/png"
+	  },
+	  {
+		"src": "icon/apple-icon-152x152.png",
+		"sizes": "152x152",
+		"type": "image/png"
+	  }
+	]
+  }  

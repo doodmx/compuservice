@@ -1,0 +1,19 @@
+mysql://
+Usuario: ba393b80689fd1
+:
+Password: dd886894
+@
+host: us-cdbr-east-02.cleardb.com
+/
+db: heroku_ace315d2b7d5902
+?reconnect=true
+/*******************************************************/
+mysql://
+b5b9c481ead737
+:
+cc844c44
+@
+us-cdbr-east-02.cleardb.com
+/
+heroku_ae2ea7dac2a8a31
+?reconnect=true
